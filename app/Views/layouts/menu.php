@@ -51,8 +51,6 @@
         <a href="<?= base_url('/') ?>" style="padding:0; font-size: 14px; color: #555 !important;">RIKA</a>
     </div>
 
-    <div class="menu-label">Menu Utama</div>
-
     <?php if (session()->get('role') == 'admin' || session()->get('role') == 'petugas') : ?>
         
         <a href="<?= base_url('dashboard') ?>">📊 Dashboard</a>
@@ -87,7 +85,6 @@
         <a href="<?= base_url('buku') ?>">📚 Lihat Buku</a>
     <?php endif; ?>
 
-    <div class="menu-label">Lainnya</div>
     <a href="<?= base_url('users/edit/' . session()->get('id')) ?>">⚙️ Setting</a>
     <a href="<?= base_url('/logout') ?>" style="color: #d9534f !important;">🚪 Log Out</a>
     <a href="<?= base_url('login') ?>">🔑 Masuk sebagai</a>
