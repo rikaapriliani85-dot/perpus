@@ -11,7 +11,7 @@ class PengembalianModel extends Model
 
     protected $allowedFields = [
         'id_peminjaman',
-        'tanggal_kembali',
+        'tanggal_dikembalikan',
         'denda'
     ];
 }

@@ -52,6 +52,8 @@
 </head>
 
 <body>
+    <?php if (session()->get('role') == 'anggota') : ?>
+    <?php endif; ?>
     <div id="sidebar" class="sidebar">
         <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
     </div>

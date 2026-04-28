@@ -130,20 +130,12 @@
                 <td class="text-danger">
                     Rp <?= number_format($p['denda'] ?? 0, 0, ',', '.') ?>
                 </td>
-
-                <td class="action">
-                    <a href="<?= base_url('pengembalian/detail/' . $p['id_pengembalian']) ?>" class="detail">
-                        Detail
-                    </a> |
-
-                    <a href="<?= base_url('pengembalian/delete/' . $p['id_pengembalian']) ?>"
-                       onclick="return confirm('Hapus data ini?')" 
-                       class="delete">
-                        Hapus
-                    </a> |
-
-                    <a href="<?= base_url('pengembalian/hitung/' . $p['id_pengembalian']) ?>" class="denda">
-                        Hitung
+                <td>
+                   <a href="<?= base_url('pengembalian/detail/'.$p['id_pengembalian']) ?>">Detail</a> |
+                    <a href="<?= base_url('pengembalian/delete/'.$p['id_pengembalian']) ?>">Hapus</a> |
+                    <a href="<?= base_url('pengembalian/hitung/'.$p['id_peminjaman']) ?>"
+                    style="color:orange;">
+                    💰 Hitung
                     </a>
                 </td>
 

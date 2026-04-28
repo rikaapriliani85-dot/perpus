@@ -14,7 +14,7 @@
 
     <!-- DIKEMBALIKAN -->
     <div style="margin-bottom:15px;">
-        <strong style="color:#333;">Tanggal Dikembalikan:</strong><br>
+        <strong style="color:#333;">Tanggal dikembalikan:</strong><br>
         <span style="color:green; font-weight:bold;">
             <?= !empty($pengembalian['tanggal_dikembalikan']) 
                 ? date('d-m-Y', strtotime($pengembalian['tanggal_dikembalikan'])) 

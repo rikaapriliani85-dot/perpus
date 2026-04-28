@@ -73,16 +73,14 @@
         <a href="<?= base_url('transaksi') ?>">💳 Transaksi</a>
         <a href="<?= base_url('penarikan') ?>">💸 Penarikan</a>
         <a href="<?= base_url('reservasi') ?>">📌 Reservasi</a>
-        <a href="<?= base_url('pengaturan') ?>">⚙️ Pengaturan</a>
         <a href="<?= base_url('pengembalian') ?>">↩️ Pengembalian</a>
 
     <?php endif; ?>
 
     <?php if (session()->get('role') == 'anggota') : ?>
         <a href="<?= base_url('/') ?>">🏠 Dashboard</a>
-        <a href="<?= base_url('peminjaman') ?>">📖 Peminjaman Saya</a>
+    <a href="<?= base_url('anggota/peminjaman') ?>">Peminjaman Saya</a>
         <a href="<?= base_url('pengembalian') ?>">↩️ Pengembalian Saya</a>
-        <a href="<?= base_url('buku') ?>">📚 Lihat Buku</a>
     <?php endif; ?>
 
     <a href="<?= base_url('users/edit/' . session()->get('id')) ?>">⚙️ Setting</a>

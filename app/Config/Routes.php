@@ -40,13 +40,25 @@ $routes->get('buku/wa/(:num)', 'Buku::wa/$1');
 // ================= PEMINJAMAN =================
 // Peminjaman
 $routes->get('/peminjaman', 'Peminjaman::index');
+$routes->get('anggota/peminjaman', 'Peminjaman::index');
 $routes->get('/peminjaman/create', 'Peminjaman::create');
-$routes->post('/peminjaman/store', 'Peminjaman::store');
+$routes->post('peminjaman/store', 'Peminjaman::store');
 $routes->get('/peminjaman/edit/(:num)', 'Peminjaman::edit/$1');
 $routes->post('/peminjaman/update/(:num)', 'Peminjaman::update/$1');
 $routes->get('peminjaman/delete/(:num)', 'Peminjaman::delete/$1');
 $routes->get('/peminjaman/detail/(:num)', 'Peminjaman::detail/$1');
-
+$routes->get('anggota/buku', 'Buku::anggota');
+$routes->get('peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
+$routes->get('peminjaman/saya', 'Peminjaman::peminjamanSaya');
+$routes->get('anggota/buku', 'Peminjaman::bukuAnggota');
+$routes->get('anggota/pinjam/(:num)', 'Peminjaman::pinjam/$1');
+$routes->get('anggota/form-pinjam/(:num)', 'Peminjaman::formPinjam/$1');
+$routes->post('peminjaman/prosesPinjam', 'Peminjaman::prosesPinjam');
+$routes->post('peminjaman/storeAnggota', 'Peminjaman::storeAnggota');
+$routes->get('anggota/buku', 'Peminjaman::bukuAnggota');
+$routes->get('peminjaman/pinjam/(:num)', 'Peminjaman::pinjam/$1');
+$routes->get('peminjaman/kembalikan/(:num)', 'Peminjaman::kembalikan/$1');
+$routes->get('anggota/pinjam/(:num)', 'Anggota::pinjam/$1');
 // ================= KATEGORI =================
 $routes->get('kategori', 'Kategori::index');
 $routes->get('kategori/create', 'Kategori::create');
@@ -86,12 +98,10 @@ $routes->post('penerbit/delete/(:num)', 'Penerbit::delete/$1');
 
 // ================= BACKUP & RESTORE =================
 $routes->get('/backup', 'Backup::index');
-
 $routes->get('/restore', 'Restore::index');
 $routes->post('/restore/auth', 'Restore::auth');
 $routes->get('/restore/form', 'Restore::form');
 $routes->post('/restore/process', 'Restore::process');
-
 // ================= ULASAN =================
 $routes->get('ulasan', 'Ulasan::index');
 $routes->get('ulasan/create', 'Ulasan::create');
@@ -144,3 +154,5 @@ $routes->post('pengembalian/store', 'Pengembalian::store');
 $routes->get('pengembalian/detail/(:num)', 'Pengembalian::detail/$1');
 $routes->get('pengembalian/delete/(:num)', 'Pengembalian::delete/$1');
 $routes->get('pengembalian/hitung/(:num)', 'Pengembalian::hitung/$1');
+$routes->get('users/edit', 'Users::edit'); 
+$routes->get('users/edit/(:num)', 'Users::edit/$1');

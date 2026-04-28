@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
+use App\Models\UserModel;
+use CodeIgniter\Controller;
 
 class Users extends BaseController
 {
@@ -10,10 +11,11 @@ class Users extends BaseController
     protected $db;
 
     public function __construct()
-    {
-        $this->users = new UsersModel();
-        $this->db = \Config\Database::connect();
-    }
+{
+    // Gunakan backslash (\) di depan App untuk memanggil path absolut
+    $this->users = new \App\Models\UsersModel();
+    $this->db = \Config\Database::connect();
+}
 
     // ================= INDEX =================
     public function index()
@@ -68,8 +70,12 @@ class Users extends BaseController
     }
 
     // ================= EDIT =================
-    public function edit($id)
+    public function edit($id = null)
     {
+        if ($id === null) {
+            return redirect()->to('/users');
+        }
+
         $data['user'] = $this->users->find($id);
 
         if (!$data['user']) {
@@ -180,4 +186,5 @@ class Users extends BaseController
 
         return redirect()->to($url);
     }
+    
 }

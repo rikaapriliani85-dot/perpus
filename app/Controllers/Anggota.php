@@ -62,4 +62,21 @@ class Anggota extends BaseController
         $this->anggotaModel->delete($id);
         return redirect()->to('/anggota');
     }
+    public function peminjaman()
+{
+    $id = session()->get('id_anggota');
+
+    $data['peminjaman'] = $this->db->table('peminjaman')
+        ->select('peminjaman.*, buku.judul')
+        ->join('buku', 'buku.id_buku = peminjaman.id_buku')
+        ->where('peminjaman.id_anggota', $id)
+        ->get()
+        ->getResultArray();
+
+    return view('anggota/peminjaman', $data);
+}
+public function pinjam($id_buku)
+{
+    dd($id_buku);
+}
 }

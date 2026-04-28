@@ -152,11 +152,6 @@ table.list td {
         </tbody>
     </table>
 
-    <!-- DENDA -->
-    <div style="text-align:right; margin-top:15px;">
-        <span class="denda">Total Denda: Rp 24.000</span>
-    </div>
-
     <!-- FOOTER -->
     <div class="footer">
        <a href="<?= base_url('peminjaman') ?>" class="btn btn-back">Kembali</a>

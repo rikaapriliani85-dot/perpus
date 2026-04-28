@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <a href="<?= base_url('restore') ?>" class="btn btn-outline-danger btn-sm">
+<i class="bi bi-database"></i> Restore DB
+</a>
     <meta charset="UTF-8">
     <title>Login</title>
 
@@ -53,6 +56,7 @@
                     <a href="<?= base_url('users/create') ?>" class="btn btn-outline-success btn-sm">
                         <i class="bi bi-person-plus"></i> Daftar Baru
                     </a>
+                    -
                 </div>
 
             </div>

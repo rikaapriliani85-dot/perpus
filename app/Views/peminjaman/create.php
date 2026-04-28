@@ -159,7 +159,7 @@ input[type="date"], select {
     </select>
 
     <!-- ================= PETUGAS ================= -->
-    <input type="hidden" name="id_petugas" value="<?= session()->get('id') ?>">
+<input type="hidden" name="id_petugas" value="<?= session()->get('id_user') ?>">
 
     <!-- ================= BUTTON ================= -->
     <div class="actions">

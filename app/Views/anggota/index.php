@@ -22,5 +22,13 @@
             <a href="/anggota/delete/<?= $a['id_anggota'] ?>" onclick="return confirm('Hapus data?')">Hapus</a>
         </td>
     </tr>
-    <?php endforeach; ?>
+   <?php foreach ($buku as $b): ?>
+    <div>
+        <h3><?= $b['judul'] ?></h3>
+
+        <a href="<?= base_url('anggota/pinjam/'.$b['id_buku']) ?>">
+            Pinjam
+        </a>
+    </div>
+<?php endforeach; ?>
 </table>

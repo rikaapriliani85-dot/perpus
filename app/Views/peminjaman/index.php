@@ -84,10 +84,9 @@
                 <th>Cover</th>
                 <th>Anggota</th>
                 <th>Tanggal Pinjam</th>
-                <th>Tanggal Kembali</th>
                 <th>Status</th>
                 <th>Aksi</th>
-                <th>Denda</th>
+
             </tr>
         </thead>
 
@@ -111,8 +110,7 @@
 
                 <!-- TANGGAL -->
                 <td><?= $p['tanggal_pinjam'] ?></td>
-                <td><?= $p['tanggal_kembali'] ?></td>
-
+            
                 <!-- STATUS -->
                 <td>
                     <?php if ($p['status'] == 'dipinjam'): ?>
@@ -130,13 +128,7 @@
                         Hapus
                     </a>
                 </td>
-
-                <!-- DENDA -->
-                <td>
-                    Rp <?= number_format($p['denda'] ?? 0, 0, ',', '.') ?>
-                </td>
-
-            </tr>
+                    </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

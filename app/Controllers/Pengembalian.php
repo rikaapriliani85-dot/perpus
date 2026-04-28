@@ -56,7 +56,7 @@ class Pengembalian extends BaseController
     $denda = 0;
 
     if ($tanggal_dikembalikan > $peminjaman['tanggal_kembali']) {
-        $telat = (strtotime($tanggal_dikembalikan) - strtotime($peminjaman['tanggal_kembali'])) / 86400;
+        $telat = (strtotime($tanggal_dikembalikan) - strtotime($peminjaman['tanggal_dikembalikan'])) / 86400;
         $denda = $telat * $tarif;
     }
 
@@ -97,41 +97,32 @@ class Pengembalian extends BaseController
         return redirect()->to('/pengembalian');
     }
     // ================= HITUNG =================
-    public function hitung($id)
+    public function hitung($id_peminjaman)
 {
-    $p = $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id)
+    $data = $this->db->table('peminjaman')
+        ->where('id_peminjaman', $id_peminjaman)
         ->get()
         ->getRowArray();
 
-    if (!$p) {
-        return redirect()->back();
+    if ($data) {
+
+        $denda = 0;
+
+        if (!empty($data['tanggal_dikembalikan'])) {
+            $telat = (strtotime(date('Y-m-d')) - strtotime($data['tanggal_dikembalikan'])) / 86400;
+
+            if ($telat > 0) {
+                $denda = $telat * 1000;
+            }
+        }
+
+        $this->db->table('pengembalian')
+            ->where('id_peminjaman', $id_peminjaman)
+            ->update([
+                'denda' => $denda
+            ]);
     }
 
-    // 🔥 INI YANG KAMU TANYA (DITARUH DI SINI)
-    $pinjam = $this->db->table('peminjaman')
-        ->where('id_peminjaman', $p['id_peminjaman'])
-        ->get()
-        ->getRowArray();
-
-    if (!$pinjam) {
-        return redirect()->back()->with('error', 'Data peminjaman tidak ditemukan');
-    }
-
-    $tarif = 1000;
-    $denda = 0;
-
-    if (date('Y-m-d') > $pinjam['tanggal_kembali']) {
-        $telat = (strtotime(date('Y-m-d')) - strtotime($pinjam['tanggal_kembali'])) / 86400;
-        $denda = $telat * $tarif;
-    }
-
-    $this->db->table('pengembalian')
-        ->where('id_pengembalian', $id)
-        ->update([
-            'denda' => $denda
-        ]);
-
-    return redirect()->to('/pengembalian');
+    return redirect()->back();
 }
 }

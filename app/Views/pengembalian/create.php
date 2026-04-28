@@ -15,12 +15,9 @@
                 style="width:100%; padding:10px; margin-top:5px; margin-bottom:15px;">
 
             <option value="">-- pilih peminjaman --</option>
-
             <?php foreach ($peminjaman as $p): ?>
-                <option 
-                    value="<?= $p['id_peminjaman'] ?>"
-                    data-kembali="<?= $p['tanggal_kembali'] ?>">
-                    #<?= $p['id_peminjaman'] ?>
+                <option value="<?= $p['id_peminjaman'] ?>">
+                    <?= $p['id_peminjaman'] ?>
                 </option>
             <?php endforeach; ?>
 
@@ -30,7 +27,7 @@
      onclick="toggleDenda()">
 
     <b>💰 Estimasi Denda:</b>
-    <span id="denda">Rp 0</span>
+    <span id="denda">Rp 1</span>
 
     <div id="detailDenda" style="display:none; margin-top:8px; font-size:13px; color:#666;">
         Klik peminjaman untuk menghitung otomatis
